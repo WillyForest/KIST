@@ -1,0 +1,66 @@
+﻿@model Lab3_KIST_.net_.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Finance_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finance_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specializ_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specializ_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book_no)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book_no)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDiploma.Diploma_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDiploma.Diploma_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Student_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,1022 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KIST_Lab3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cafedra">
+          <Key>
+            <PropertyRef Name="Cafedra_ID" />
+          </Key>
+          <Property Name="Cafedra_ID" Type="int" Nullable="false" />
+          <Property Name="Faculty_ID" Type="int" />
+          <Property Name="Cafedra_name" Type="nchar" MaxLength="100" />
+          <Property Name="Cafedra_shifr" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Contract_ID" />
+          </Key>
+          <Property Name="Contract_ID" Type="int" Nullable="false" />
+          <Property Name="Student_ID" Type="int" />
+          <Property Name="Contract_kind_ID" Type="int" />
+          <Property Name="Contract_date" Type="date" />
+          <Property Name="Contract_no" Type="int" />
+          <Property Name="Contract_sum" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Payer_kind" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="Faculty_ID" />
+          </Key>
+          <Property Name="Faculty_ID" Type="int" Nullable="false" />
+          <Property Name="Faculty_name" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="Group_ID" />
+          </Key>
+          <Property Name="Group_ID" Type="int" Nullable="false" />
+          <Property Name="Speciality_ID" Type="int" />
+          <Property Name="Group_code" Type="nchar" MaxLength="10" />
+          <Property Name="Group_creat_date" Type="date" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="Lesson_kind_ID" />
+          </Key>
+          <Property Name="Lesson_kind_ID" Type="int" Nullable="false" />
+          <Property Name="Teach_plan_ID" Type="int" />
+          <Property Name="Teacher_ID" Type="int" />
+          <Property Name="Hours" Type="int" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="int" Nullable="false" />
+          <Property Name="Surname" Type="nchar" MaxLength="50" />
+          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nchar" MaxLength="50" />
+          <Property Name="Birth_date" Type="date" />
+          <Property Name="Sex" Type="nchar" MaxLength="10" />
+          <Property Name="Birth_place" Type="nchar" MaxLength="100" />
+          <Property Name="Address" Type="nchar" MaxLength="100" />
+          <Property Name="Telephon" Type="nchar" MaxLength="12" />
+          <Property Name="Nation_ID" Type="int" />
+          <Property Name="Citizen_ID" Type="int" />
+          <Property Name="Social_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="SContract_Kind">
+          <Key>
+            <PropertyRef Name="Contract_kind_ID" />
+          </Key>
+          <Property Name="Contract_kind_ID" Type="int" Nullable="false" />
+          <Property Name="Contract_kind_name" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SDiploma">
+          <Key>
+            <PropertyRef Name="Diploma_ID" />
+          </Key>
+          <Property Name="Diploma_ID" Type="int" Nullable="false" />
+          <Property Name="Diploma_name" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="Semester_ID" />
+          </Key>
+          <Property Name="Semester_ID" Type="int" Nullable="false" />
+          <Property Name="Teach_begin_date" Type="date" />
+          <Property Name="Teach_end_date" Type="date" />
+          <Property Name="Session_begin_date" Type="date" />
+          <Property Name="Session_end_date" Type="date" />
+          <Property Name="Attest1_date" Type="date" />
+          <Property Name="Attest2_date" Type="date" />
+        </EntityType>
+        <EntityType Name="SLesson_kind">
+          <Key>
+            <PropertyRef Name="Lesson_kind_ID" />
+          </Key>
+          <Property Name="Lesson_kind_ID" Type="int" Nullable="false" />
+          <Property Name="Lesson_kind_name" Type="nchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SMark">
+          <Key>
+            <PropertyRef Name="Mark_ID" />
+          </Key>
+          <Property Name="Mark_ID" Type="int" Nullable="false" />
+          <Property Name="Mark_name" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="Speciality_ID" />
+          </Key>
+          <Property Name="Speciality_ID" Type="int" Nullable="false" />
+          <Property Name="Cafedra_ID" Type="int" />
+          <Property Name="Speciality_name" Type="nchar" MaxLength="100" />
+          <Property Name="Speciality_shifr" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="int" Nullable="false" />
+          <Property Name="Finance_ID" Type="int" />
+          <Property Name="Status_ID" Type="int" />
+          <Property Name="Diploma_ID" Type="int" />
+          <Property Name="Specializ_ID" Type="int" />
+          <Property Name="Book_no" Type="int" />
+          <Property Name="Note" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Student_Group">
+          <Key>
+            <PropertyRef Name="Group_ID" />
+          </Key>
+          <Property Name="Group_ID" Type="int" Nullable="false" />
+          <Property Name="Student_ID" Type="int" />
+          <Property Name="Putting_date" Type="date" />
+        </EntityType>
+        <EntityType Name="Student_Marks">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="int" Nullable="false" />
+          <Property Name="Teach_plan_ID" Type="int" />
+          <Property Name="Mark_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Subject_ID" />
+          </Key>
+          <Property Name="Subject_ID" Type="int" Nullable="false" />
+          <Property Name="Subject_name" Type="nchar" MaxLength="50" />
+          <Property Name="Subject_shifr" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Teach_Plan">
+          <Key>
+            <PropertyRef Name="Teach_plan_ID" />
+          </Key>
+          <Property Name="Teach_plan_ID" Type="int" Nullable="false" />
+          <Property Name="Semester_ID" Type="int" />
+          <Property Name="Group_ID" Type="int" />
+          <Property Name="Subject_ID" Type="int" />
+          <Property Name="Tester_ID" Type="int" />
+          <Property Name="Test_kind_ID" Type="int" />
+          <Property Name="Test_date" Type="date" />
+          <Property Name="Is_obligatory" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Cafedra">
+          <End Role="Cafedra" Type="Self.Cafedra" Multiplicity="0..1" />
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cafedra">
+              <PropertyRef Name="Cafedra_ID" />
+            </Principal>
+            <Dependent Role="Speciality">
+              <PropertyRef Name="Cafedra_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_kind">
+          <End Role="SContract_Kind" Type="Self.SContract_Kind" Multiplicity="0..1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SContract_Kind">
+              <PropertyRef Name="Contract_kind_ID" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Contract_kind_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diploma">
+          <End Role="SDiploma" Type="Self.SDiploma" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SDiploma">
+              <PropertyRef Name="Diploma_ID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Diploma_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+          <End Role="Cafedra" Type="Self.Cafedra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Faculty_ID" />
+            </Principal>
+            <Dependent Role="Cafedra">
+              <PropertyRef Name="Faculty_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Group_ID" />
+            </Principal>
+            <Dependent Role="Teach_Plan">
+              <PropertyRef Name="Group_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_kind">
+          <End Role="SLesson_kind" Type="Self.SLesson_kind" Multiplicity="1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SLesson_kind">
+              <PropertyRef Name="Lesson_kind_ID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="Lesson_kind_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks">
+          <End Role="SMark" Type="Self.SMark" Multiplicity="0..1" />
+          <End Role="Student_Marks" Type="Self.Student_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMark">
+              <PropertyRef Name="Mark_ID" />
+            </Principal>
+            <Dependent Role="Student_Marks">
+              <PropertyRef Name="Mark_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Semester">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="Semester_ID" />
+            </Principal>
+            <Dependent Role="Teach_Plan">
+              <PropertyRef Name="Semester_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Speciality_ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Speciality_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Student_Group" Type="Self.Student_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Student_Group">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_ID">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Subject_ID" />
+            </Principal>
+            <Dependent Role="Teach_Plan">
+              <PropertyRef Name="Subject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teach_plan">
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="0..1" />
+          <End Role="Student_Marks" Type="Self.Student_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teach_Plan">
+              <PropertyRef Name="Teach_plan_ID" />
+            </Principal>
+            <Dependent Role="Student_Marks">
+              <PropertyRef Name="Teach_plan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KIST_Lab3ModelStoreContainer">
+          <EntitySet Name="Cafedra" EntityType="Self.Cafedra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SContract_Kind" EntityType="Self.SContract_Kind" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SDiploma" EntityType="Self.SDiploma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Semester" EntityType="Self.Semester" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SLesson_kind" EntityType="Self.SLesson_kind" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SMark" EntityType="Self.SMark" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Speciality" EntityType="Self.Speciality" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Group" EntityType="Self.Student_Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student_Marks" EntityType="Self.Student_Marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teach_Plan" EntityType="Self.Teach_Plan" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cafedra" Association="Self.FK_Cafedra">
+            <End Role="Cafedra" EntitySet="Cafedra" />
+            <End Role="Speciality" EntitySet="Speciality" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_kind" Association="Self.FK_Contract_kind">
+            <End Role="SContract_Kind" EntitySet="SContract_Kind" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diploma" Association="Self.FK_Diploma">
+            <End Role="SDiploma" EntitySet="SDiploma" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculty" Association="Self.FK_Faculty">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Cafedra" EntitySet="Cafedra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group" Association="Self.FK_Group">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_kind" Association="Self.FK_Lesson_kind">
+            <End Role="SLesson_kind" EntitySet="SLesson_kind" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks" Association="Self.FK_Marks">
+            <End Role="SMark" EntitySet="SMark" />
+            <End Role="Student_Marks" EntitySet="Student_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Semester" Association="Self.FK_Semester">
+            <End Role="Semester" EntitySet="Semester" />
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speciality" Association="Self.FK_Speciality">
+            <End Role="Speciality" EntitySet="Speciality" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student" Association="Self.FK_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Student_Group" EntitySet="Student_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_ID" Association="Self.FK_Student_ID">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject" Association="Self.FK_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teach_plan" Association="Self.FK_Teach_plan">
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+            <End Role="Student_Marks" EntitySet="Student_Marks" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KIST_Lab3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cafedra">
+          <Key>
+            <PropertyRef Name="Cafedra_ID" />
+          </Key>
+          <Property Name="Cafedra_ID" Type="Int32" Nullable="false" />
+          <Property Name="Faculty_ID" Type="Int32" />
+          <Property Name="Cafedra_name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Cafedra_shifr" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Specialities" Relationship="Self.FK_Cafedra" FromRole="Cafedra" ToRole="Speciality" />
+          <NavigationProperty Name="Faculty" Relationship="Self.FK_Faculty" FromRole="Cafedra" ToRole="Faculty" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Contract_ID" />
+          </Key>
+          <Property Name="Contract_ID" Type="Int32" Nullable="false" />
+          <Property Name="Student_ID" Type="Int32" />
+          <Property Name="Contract_kind_ID" Type="Int32" />
+          <Property Name="Contract_date" Type="DateTime" Precision="0" />
+          <Property Name="Contract_no" Type="Int32" />
+          <Property Name="Contract_sum" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Payer_kind" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="SContract_Kind" Relationship="Self.FK_Contract_kind" FromRole="Contract" ToRole="SContract_Kind" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_ID" FromRole="Contract" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="Faculty_ID" />
+          </Key>
+          <Property Name="Faculty_ID" Type="Int32" Nullable="false" />
+          <Property Name="Faculty_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Cafedras" Relationship="Self.FK_Faculty" FromRole="Faculty" ToRole="Cafedra" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Group_ID" />
+          </Key>
+          <Property Name="Group_ID" Type="Int32" Nullable="false" />
+          <Property Name="Speciality_ID" Type="Int32" />
+          <Property Name="Group_code" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Group_creat_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Teach_Plan" Relationship="Self.FK_Group" FromRole="Groups" ToRole="Teach_Plan" />
+          <NavigationProperty Name="Speciality" Relationship="Self.FK_Speciality" FromRole="Groups" ToRole="Speciality" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="Lesson_kind_ID" />
+          </Key>
+          <Property Name="Lesson_kind_ID" Type="Int32" Nullable="false" />
+          <Property Name="Teach_plan_ID" Type="Int32" />
+          <Property Name="Teacher_ID" Type="Int32" />
+          <Property Name="Hours" Type="Int32" />
+          <NavigationProperty Name="SLesson_kind" Relationship="Self.FK_Lesson_kind" FromRole="Lesson" ToRole="SLesson_kind" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonId" />
+          </Key>
+          <Property Name="PersonId" Type="Int32" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Birth_date" Type="DateTime" Precision="0" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Birth_place" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Telephon" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Nation_ID" Type="Int32" />
+          <Property Name="Citizen_ID" Type="Int32" />
+          <Property Name="Social_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SContract_Kind">
+          <Key>
+            <PropertyRef Name="Contract_kind_ID" />
+          </Key>
+          <Property Name="Contract_kind_ID" Type="Int32" Nullable="false" />
+          <Property Name="Contract_kind_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Contract_kind" FromRole="SContract_Kind" ToRole="Contract" />
+        </EntityType>
+        <EntityType Name="SDiploma">
+          <Key>
+            <PropertyRef Name="Diploma_ID" />
+          </Key>
+          <Property Name="Diploma_ID" Type="Int32" Nullable="false" />
+          <Property Name="Diploma_name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Students" Relationship="Self.FK_Diploma" FromRole="SDiploma" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Semester">
+          <Key>
+            <PropertyRef Name="Semester_ID" />
+          </Key>
+          <Property Name="Semester_ID" Type="Int32" Nullable="false" />
+          <Property Name="Teach_begin_date" Type="DateTime" Precision="0" />
+          <Property Name="Teach_end_date" Type="DateTime" Precision="0" />
+          <Property Name="Session_begin_date" Type="DateTime" Precision="0" />
+          <Property Name="Session_end_date" Type="DateTime" Precision="0" />
+          <Property Name="Attest1_date" Type="DateTime" Precision="0" />
+          <Property Name="Attest2_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Teach_Plan" Relationship="Self.FK_Semester" FromRole="Semester" ToRole="Teach_Plan" />
+        </EntityType>
+        <EntityType Name="SLesson_kind">
+          <Key>
+            <PropertyRef Name="Lesson_kind_ID" />
+          </Key>
+          <Property Name="Lesson_kind_ID" Type="Int32" Nullable="false" />
+          <Property Name="Lesson_kind_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Lesson" Relationship="Self.FK_Lesson_kind" FromRole="SLesson_kind" ToRole="Lesson" />
+        </EntityType>
+        <EntityType Name="SMark">
+          <Key>
+            <PropertyRef Name="Mark_ID" />
+          </Key>
+          <Property Name="Mark_ID" Type="Int32" Nullable="false" />
+          <Property Name="Mark_name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Student_Marks" Relationship="Self.FK_Marks" FromRole="SMark" ToRole="Student_Marks" />
+        </EntityType>
+        <EntityType Name="Speciality">
+          <Key>
+            <PropertyRef Name="Speciality_ID" />
+          </Key>
+          <Property Name="Speciality_ID" Type="Int32" Nullable="false" />
+          <Property Name="Cafedra_ID" Type="Int32" />
+          <Property Name="Speciality_name" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Speciality_shifr" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Cafedra" Relationship="Self.FK_Cafedra" FromRole="Speciality" ToRole="Cafedra" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_Speciality" FromRole="Speciality" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="Int32" Nullable="false" />
+          <Property Name="Finance_ID" Type="Int32" />
+          <Property Name="Status_ID" Type="Int32" />
+          <Property Name="Diploma_ID" Type="Int32" />
+          <Property Name="Specializ_ID" Type="Int32" />
+          <Property Name="Book_no" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Contracts" Relationship="Self.FK_Student_ID" FromRole="Student" ToRole="Contract" />
+          <NavigationProperty Name="SDiploma" Relationship="Self.FK_Diploma" FromRole="Student" ToRole="SDiploma" />
+          <NavigationProperty Name="Student_Group" Relationship="Self.FK_Student" FromRole="Student" ToRole="Student_Group" />
+        </EntityType>
+        <EntityType Name="Student_Group">
+          <Key>
+            <PropertyRef Name="Group_ID" />
+          </Key>
+          <Property Name="Group_ID" Type="Int32" Nullable="false" />
+          <Property Name="Student_ID" Type="Int32" />
+          <Property Name="Putting_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student" FromRole="Student_Group" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student_Marks">
+          <Key>
+            <PropertyRef Name="Student_ID" />
+          </Key>
+          <Property Name="Student_ID" Type="Int32" Nullable="false" />
+          <Property Name="Teach_plan_ID" Type="Int32" />
+          <Property Name="Mark_ID" Type="Int32" />
+          <NavigationProperty Name="SMark" Relationship="Self.FK_Marks" FromRole="Student_Marks" ToRole="SMark" />
+          <NavigationProperty Name="Teach_Plan" Relationship="Self.FK_Teach_plan" FromRole="Student_Marks" ToRole="Teach_Plan" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Subject_ID" />
+          </Key>
+          <Property Name="Subject_ID" Type="Int32" Nullable="false" />
+          <Property Name="Subject_name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Subject_shifr" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Teach_Plan" Relationship="Self.FK_Subject" FromRole="Subject" ToRole="Teach_Plan" />
+        </EntityType>
+        <EntityType Name="Teach_Plan">
+          <Key>
+            <PropertyRef Name="Teach_plan_ID" />
+          </Key>
+          <Property Name="Teach_plan_ID" Type="Int32" Nullable="false" />
+          <Property Name="Semester_ID" Type="Int32" />
+          <Property Name="Group_ID" Type="Int32" />
+          <Property Name="Subject_ID" Type="Int32" />
+          <Property Name="Tester_ID" Type="Int32" />
+          <Property Name="Test_kind_ID" Type="Int32" />
+          <Property Name="Test_date" Type="DateTime" Precision="0" />
+          <Property Name="Is_obligatory" Type="Boolean" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Group" FromRole="Teach_Plan" ToRole="Groups" />
+          <NavigationProperty Name="Semester" Relationship="Self.FK_Semester" FromRole="Teach_Plan" ToRole="Semester" />
+          <NavigationProperty Name="Student_Marks" Relationship="Self.FK_Teach_plan" FromRole="Teach_Plan" ToRole="Student_Marks" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK_Subject" FromRole="Teach_Plan" ToRole="Subject" />
+        </EntityType>
+        <Association Name="FK_Cafedra">
+          <End Role="Cafedra" Type="Self.Cafedra" Multiplicity="0..1" />
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cafedra">
+              <PropertyRef Name="Cafedra_ID" />
+            </Principal>
+            <Dependent Role="Speciality">
+              <PropertyRef Name="Cafedra_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faculty">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+          <End Role="Cafedra" Type="Self.Cafedra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="Faculty_ID" />
+            </Principal>
+            <Dependent Role="Cafedra">
+              <PropertyRef Name="Faculty_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_kind">
+          <End Role="SContract_Kind" Type="Self.SContract_Kind" Multiplicity="0..1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SContract_Kind">
+              <PropertyRef Name="Contract_kind_ID" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Contract_kind_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_ID">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group">
+          <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="Group_ID" />
+            </Principal>
+            <Dependent Role="Teach_Plan">
+              <PropertyRef Name="Group_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Speciality">
+          <End Role="Speciality" Type="Self.Speciality" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Speciality">
+              <PropertyRef Name="Speciality_ID" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="Speciality_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_kind">
+          <End Role="SLesson_kind" Type="Self.SLesson_kind" Multiplicity="1" />
+          <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="SLesson_kind">
+              <PropertyRef Name="Lesson_kind_ID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="Lesson_kind_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Diploma">
+          <End Role="SDiploma" Type="Self.SDiploma" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SDiploma">
+              <PropertyRef Name="Diploma_ID" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="Diploma_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Semester">
+          <End Role="Semester" Type="Self.Semester" Multiplicity="0..1" />
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Semester">
+              <PropertyRef Name="Semester_ID" />
+            </Principal>
+            <Dependent Role="Teach_Plan">
+              <PropertyRef Name="Semester_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Marks">
+          <End Role="SMark" Type="Self.SMark" Multiplicity="0..1" />
+          <End Role="Student_Marks" Type="Self.Student_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMark">
+              <PropertyRef Name="Mark_ID" />
+            </Principal>
+            <Dependent Role="Student_Marks">
+              <PropertyRef Name="Mark_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Student_Group" Type="Self.Student_Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Student_ID" />
+            </Principal>
+            <Dependent Role="Student_Group">
+              <PropertyRef Name="Student_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teach_plan">
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="0..1" />
+          <End Role="Student_Marks" Type="Self.Student_Marks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teach_Plan">
+              <PropertyRef Name="Teach_plan_ID" />
+            </Principal>
+            <Dependent Role="Student_Marks">
+              <PropertyRef Name="Teach_plan_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+          <End Role="Teach_Plan" Type="Self.Teach_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Subject_ID" />
+            </Principal>
+            <Dependent Role="Teach_Plan">
+              <PropertyRef Name="Subject_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KIST_Lab3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cafedras" EntityType="Self.Cafedra" />
+          <EntitySet Name="Contracts" EntityType="Self.Contract" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Lessons" EntityType="Self.Lesson" />
+          <EntitySet Name="People" EntityType="Self.Person" />
+          <EntitySet Name="SContract_Kind" EntityType="Self.SContract_Kind" />
+          <EntitySet Name="SDiplomas" EntityType="Self.SDiploma" />
+          <EntitySet Name="Semesters" EntityType="Self.Semester" />
+          <EntitySet Name="SLesson_kind" EntityType="Self.SLesson_kind" />
+          <EntitySet Name="SMarks" EntityType="Self.SMark" />
+          <EntitySet Name="Specialities" EntityType="Self.Speciality" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Student_Group" EntityType="Self.Student_Group" />
+          <EntitySet Name="Student_Marks" EntityType="Self.Student_Marks" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="Teach_Plan" EntityType="Self.Teach_Plan" />
+          <AssociationSet Name="FK_Cafedra" Association="Self.FK_Cafedra">
+            <End Role="Cafedra" EntitySet="Cafedras" />
+            <End Role="Speciality" EntitySet="Specialities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faculty" Association="Self.FK_Faculty">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Cafedra" EntitySet="Cafedras" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_kind" Association="Self.FK_Contract_kind">
+            <End Role="SContract_Kind" EntitySet="SContract_Kind" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_ID" Association="Self.FK_Student_ID">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group" Association="Self.FK_Group">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Speciality" Association="Self.FK_Speciality">
+            <End Role="Speciality" EntitySet="Specialities" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_kind" Association="Self.FK_Lesson_kind">
+            <End Role="SLesson_kind" EntitySet="SLesson_kind" />
+            <End Role="Lesson" EntitySet="Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Diploma" Association="Self.FK_Diploma">
+            <End Role="SDiploma" EntitySet="SDiplomas" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Semester" Association="Self.FK_Semester">
+            <End Role="Semester" EntitySet="Semesters" />
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Marks" Association="Self.FK_Marks">
+            <End Role="SMark" EntitySet="SMarks" />
+            <End Role="Student_Marks" EntitySet="Student_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student" Association="Self.FK_Student">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Student_Group" EntitySet="Student_Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teach_plan" Association="Self.FK_Teach_plan">
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+            <End Role="Student_Marks" EntitySet="Student_Marks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject" Association="Self.FK_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Teach_Plan" EntitySet="Teach_Plan" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KIST_Lab3ModelStoreContainer" CdmEntityContainer="KIST_Lab3Entities">
+          <EntitySetMapping Name="Cafedras">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Cafedra">
+              <MappingFragment StoreEntitySet="Cafedra">
+                <ScalarProperty Name="Cafedra_ID" ColumnName="Cafedra_ID" />
+                <ScalarProperty Name="Faculty_ID" ColumnName="Faculty_ID" />
+                <ScalarProperty Name="Cafedra_name" ColumnName="Cafedra_name" />
+                <ScalarProperty Name="Cafedra_shifr" ColumnName="Cafedra_shifr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="Contract_ID" ColumnName="Contract_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Contract_kind_ID" ColumnName="Contract_kind_ID" />
+                <ScalarProperty Name="Contract_date" ColumnName="Contract_date" />
+                <ScalarProperty Name="Contract_no" ColumnName="Contract_no" />
+                <ScalarProperty Name="Contract_sum" ColumnName="Contract_sum" />
+                <ScalarProperty Name="Payer_kind" ColumnName="Payer_kind" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="Faculty_ID" ColumnName="Faculty_ID" />
+                <ScalarProperty Name="Faculty_name" ColumnName="Faculty_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
+                <ScalarProperty Name="Speciality_ID" ColumnName="Speciality_ID" />
+                <ScalarProperty Name="Group_code" ColumnName="Group_code" />
+                <ScalarProperty Name="Group_creat_date" ColumnName="Group_creat_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lessons">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Lesson">
+              <MappingFragment StoreEntitySet="Lesson">
+                <ScalarProperty Name="Lesson_kind_ID" ColumnName="Lesson_kind_ID" />
+                <ScalarProperty Name="Teach_plan_ID" ColumnName="Teach_plan_ID" />
+                <ScalarProperty Name="Teacher_ID" ColumnName="Teacher_ID" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="People">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Birth_date" ColumnName="Birth_date" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Birth_place" ColumnName="Birth_place" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Telephon" ColumnName="Telephon" />
+                <ScalarProperty Name="Nation_ID" ColumnName="Nation_ID" />
+                <ScalarProperty Name="Citizen_ID" ColumnName="Citizen_ID" />
+                <ScalarProperty Name="Social_ID" ColumnName="Social_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SContract_Kind">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.SContract_Kind">
+              <MappingFragment StoreEntitySet="SContract_Kind">
+                <ScalarProperty Name="Contract_kind_ID" ColumnName="Contract_kind_ID" />
+                <ScalarProperty Name="Contract_kind_name" ColumnName="Contract_kind_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SDiplomas">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.SDiploma">
+              <MappingFragment StoreEntitySet="SDiploma">
+                <ScalarProperty Name="Diploma_ID" ColumnName="Diploma_ID" />
+                <ScalarProperty Name="Diploma_name" ColumnName="Diploma_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Semesters">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Semester">
+              <MappingFragment StoreEntitySet="Semester">
+                <ScalarProperty Name="Semester_ID" ColumnName="Semester_ID" />
+                <ScalarProperty Name="Teach_begin_date" ColumnName="Teach_begin_date" />
+                <ScalarProperty Name="Teach_end_date" ColumnName="Teach_end_date" />
+                <ScalarProperty Name="Session_begin_date" ColumnName="Session_begin_date" />
+                <ScalarProperty Name="Session_end_date" ColumnName="Session_end_date" />
+                <ScalarProperty Name="Attest1_date" ColumnName="Attest1_date" />
+                <ScalarProperty Name="Attest2_date" ColumnName="Attest2_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SLesson_kind">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.SLesson_kind">
+              <MappingFragment StoreEntitySet="SLesson_kind">
+                <ScalarProperty Name="Lesson_kind_ID" ColumnName="Lesson_kind_ID" />
+                <ScalarProperty Name="Lesson_kind_name" ColumnName="Lesson_kind_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMarks">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.SMark">
+              <MappingFragment StoreEntitySet="SMark">
+                <ScalarProperty Name="Mark_ID" ColumnName="Mark_ID" />
+                <ScalarProperty Name="Mark_name" ColumnName="Mark_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specialities">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Speciality">
+              <MappingFragment StoreEntitySet="Speciality">
+                <ScalarProperty Name="Speciality_ID" ColumnName="Speciality_ID" />
+                <ScalarProperty Name="Cafedra_ID" ColumnName="Cafedra_ID" />
+                <ScalarProperty Name="Speciality_name" ColumnName="Speciality_name" />
+                <ScalarProperty Name="Speciality_shifr" ColumnName="Speciality_shifr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Finance_ID" ColumnName="Finance_ID" />
+                <ScalarProperty Name="Status_ID" ColumnName="Status_ID" />
+                <ScalarProperty Name="Diploma_ID" ColumnName="Diploma_ID" />
+                <ScalarProperty Name="Specializ_ID" ColumnName="Specializ_ID" />
+                <ScalarProperty Name="Book_no" ColumnName="Book_no" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Group">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Student_Group">
+              <MappingFragment StoreEntitySet="Student_Group">
+                <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Putting_date" ColumnName="Putting_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student_Marks">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Student_Marks">
+              <MappingFragment StoreEntitySet="Student_Marks">
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="Teach_plan_ID" ColumnName="Teach_plan_ID" />
+                <ScalarProperty Name="Mark_ID" ColumnName="Mark_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="Subject_ID" ColumnName="Subject_ID" />
+                <ScalarProperty Name="Subject_name" ColumnName="Subject_name" />
+                <ScalarProperty Name="Subject_shifr" ColumnName="Subject_shifr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teach_Plan">
+            <EntityTypeMapping TypeName="KIST_Lab3Model.Teach_Plan">
+              <MappingFragment StoreEntitySet="Teach_Plan">
+                <ScalarProperty Name="Teach_plan_ID" ColumnName="Teach_plan_ID" />
+                <ScalarProperty Name="Semester_ID" ColumnName="Semester_ID" />
+                <ScalarProperty Name="Group_ID" ColumnName="Group_ID" />
+                <ScalarProperty Name="Subject_ID" ColumnName="Subject_ID" />
+                <ScalarProperty Name="Tester_ID" ColumnName="Tester_ID" />
+                <ScalarProperty Name="Test_kind_ID" ColumnName="Test_kind_ID" />
+                <ScalarProperty Name="Test_date" ColumnName="Test_date" />
+                <ScalarProperty Name="Is_obligatory" ColumnName="Is_obligatory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

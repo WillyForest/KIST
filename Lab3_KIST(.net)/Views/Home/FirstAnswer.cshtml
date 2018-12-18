@@ -3,9 +3,9 @@
     ViewBag.Title = "FirstAnswer";
 }
 @model IEnumerable<Lab3_KIST_.net_.Models.Person>
-<h2>FirstAnswer</h2>
+<h2>Студенти кафедри "@ViewBag.Cafedra", факультету "@ViewBag.Faculty", спеціальності @ViewBag.Speciality", у яких є оцінка "2"</h2>
 @foreach (var student in Model)
 {
-    <h6>@student.Name</h6>
+    <h6>@student.Name @student.Surname</h6>
 }
 

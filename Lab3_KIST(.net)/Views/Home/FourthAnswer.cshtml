@@ -3,8 +3,8 @@
     ViewBag.Title = "FourthAnswer";
 }
 @model IEnumerable<Lab3_KIST_.net_.Models.Person>
-<h2>SecondAnswer</h2>
+<h2>Всі контрактники, у яких є оцінка "5"</h2>
 @foreach (var student in Model)
 {
-    <h6>@student.Name</h6>
+    <h6>@student.Name @student.Surname</h6>
 }

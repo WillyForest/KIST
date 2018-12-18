@@ -21,7 +21,7 @@ namespace Lab3_KIST_.net_.Controllers
             return View();
         }
         
-        public ActionResult FirstAnswer(string Cafedra, string Faculty, string Speciality)
+        public ActionResult FirstAnswer(string Cafedra = "TK", string Faculty = "FICT", string Speciality = "ROBOTS")
         {
             var specs = db.Specialities.Where(x => x.Speciality_name == Speciality && x.Cafedra.Cafedra_name == Cafedra && x.Cafedra.Faculty.Faculty_name == Faculty);
             var groups = db.Groups.Where(x => specs.Contains(x.Speciality)).Select(x => x.Group_ID);
@@ -29,6 +29,9 @@ namespace Lab3_KIST_.net_.Controllers
             var studentIds = db.Student_Marks.Where(x => students.Select(u => u.Student_ID).Contains(x.Student_ID)).Where(x => x.SMark.Mark_name == "2").Select(x => x.Student_ID);
             //var result = db.Students.Where(x => studentIds.Contains(x.Student_ID));
             var result = db.People.Where(x => studentIds.Contains(x.PersonId));
+            ViewBag.Cafedra = Cafedra;
+            ViewBag.Faculty = Faculty;
+            ViewBag.Speciality = Speciality;
             return View(result);
         }
 
@@ -50,10 +53,11 @@ namespace Lab3_KIST_.net_.Controllers
             return View();
         }
 
-        public ActionResult ThirdAnswer()
+        public ActionResult ThirdAnswer(string diplomaName = "Робототехніка")
         {
-            var studentIds = db.Students.Where(x => x.SDiploma.Diploma_name == "Робототехніка").Select(x => x.Student_ID);
+            var studentIds = db.Students.Where(x => x.SDiploma.Diploma_name == diplomaName).Select(x => x.Student_ID);
             var result = db.People.Where(x => studentIds.Contains(x.PersonId));
+            ViewBag.diplomaName = diplomaName;
             return View(result);
         }
 
